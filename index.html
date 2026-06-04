@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlant - Cuidado Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🌿 Smart<span>Plant</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#funcionamiento">¿Cómo funciona?</a></li>
+                <li><a href="#diagnostico">Diagnóstico</a></li>
+                <li><a href="#capsulas">Cápsulas</a></li>
+                <li><a href="#maceta">Maceta Inteligente</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Diagnóstico, monitoreo y recuperación inteligente para tus plantas</h1>
+            <p>Llevamos la tecnología de vanguardia al cuidado de la naturaleza. Descubre qué necesita tu planta en tiempo real.</p>
+            <a href="#diagnostico" class="btn-primary">Iniciar Diagnóstico ⚡</a>
+        </div>
+        <div class="hero-image">
+            <div class="tech-pot">
+                <div class="plant-emoji">🌿</div>
+                <div class="pot-base">
+                    <div class="pot-light"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="funcionamiento" class="steps-section">
+        <h2 class="section-title">¿Cómo funciona?</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Selecciona la planta</h3>
+                <p>Elige la especie o tipo de planta que deseas analizar de nuestro catálogo integrado.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Responde los síntomas</h3>
+                <p>Indica el estado actual de la tierra, sus hojas, el crecimiento y la exposición al sol.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Recibe tu solución</h3>
+                <p>Nuestro sistema evalúa las variables y te asigna la cápsula de tratamiento ideal instantáneamente.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="diagnostico" class="diag-section">
+        <h2 class="section-title">Panel de Diagnóstico Clínico</h2>
+        <div class="diag-container">
+            <form id="diag-form" class="diag-form">
+                <div class="form-group">
+                    <label for="tipo-planta">🌱 Tipo de Planta:</label>
+                    <select id="tipo-planta" required>
+                        <option value="cactus">Cactus</option>
+                        <option value="suculenta">Suculenta</option>
+                        <option value="sábila">Sábila / Aloe Vera</option>
+                        <option value="rosa">Rosal</option>
+                        <option value="menta">Menta</option>
+                        <option value="albahaca">Albahaca</option>
+                        <option value="interior">Planta de Interior</option>
+                        <option value="general">Planta General / No identificada</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tierra">⏳ Estado de la Tierra:</label>
+                    <select id="tierra" required>
+                        <option value="seca">Seca y agrietada</option>
+                        <option value="humeda">Húmeda ideal</option>
+                        <option value="muy_mojada">Muy mojada / Encharcada</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="hojas">🍃 Estado de las Hojas:</label>
+                    <select id="hojas" required>
+                        <option value="verdes">Verdes y firmes</option>
+                        <option value="amarillas">Amarillas</option>
+                        <option value="secas">Secas o crujientes</option>
+                        <option value="manchas">Con manchas oscuras / blancas</option>
+                        <option value="caidas">Caídas o marchitas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="luz">☀️ Cantidad de Luz Recibida:</label>
+                    <select id="luz" required>
+                        <option value="poca">Poca luz (Sombra total)</option>
+                        <option value="media">Luz media (Semicentral)</option>
+                        <option value="mucha">Mucha luz (Sol directo)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="crecimiento">📈 Ritmo de Crecimiento:</label>
+                    <select id="crecimiento" required>
+                        <option value="normal">Normal y constante</option>
+                        <option value="lento">Lento</option>
+                        <option value="detenido">Completamente detenido</option>
+                    </select>
+                </div>
+
+                <button type="button" onclick="procesarDiagnostico()" class="btn-submit">Analizar Salud de la Planta 🧠</button>
+            </form>
+
+            <div id="resultado-box" class="resultado-box hidden">
+                <h3>📋 Reporte del Sistema</h3>
+                <div class="result-item"><strong>Diagnóstico Probable:</strong> <span id="res-diag"></span></div>
+                <div class="result-item"><strong>Explicación:</strong> <span id="res-exp"></span></div>
+                <div class="result-item"><strong>Cápsula Recomendada:</strong> <span id="res-capsula" class="badge"></span></div>
+                <div class="result-item"><strong>Consejo de Cuidado:</strong> <span id="res-consejo"></span></div>
+                <div class="result-item"><strong>Nivel de Urgencia:</strong> <span id="res-urgencia"></span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="capsulas" class="capsulas-section">
+        <h2 class="section-title">Nuestras Cápsulas de Recuperación</h2>
+        <div class="capsulas-grid">
+            <div class="capsula-card" id="cap-nutriplant">
+                <div class="capsula-icon">🧪</div>
+                <h3>NutriPlant</h3>
+                <p>Fórmula concentrada de nitrógeno y minerales. Diseñada especialmente para combatir la falta de nutrientes, hojas amarillas y ritmos de crecimiento lento o atrofiado.</p>
+            </div>
+            <div class="capsula-card" id="cap-aquabalance">
+                <div class="capsula-icon">💧</div>
+                <h3>AquaBalance</h3>
+                <p>Microgeles inteligentes reguladores hídricos. Estabiliza los problemas graves de riego, rehidratando la tierra seca o absorbiendo el exceso peligroso de agua.</p>
+            </div>
+            <div class="capsula-card" id="cap-fungistop">
+                <div class="capsula-icon">🛡️</div>
+                <h3>FungiStop</h3>
+                <p>Compuesto orgánico antifúngico de amplio espectro. Elimina manchas foliares, hongos microscópicos y previene infecciones biológicas en las hojas.</p>
+            </div>
+            <div class="capsula-card" id="cap-reviveplant">
+                <div class="capsula-icon">⚡</div>
+                <h3>RevivePlant</h3>
+                <p>Cóctel de aminoácidos y hormonas de rescate vegetal. Pensado para levantar plantas críticamente débiles, caídas, deshojadas o en estado de shock severo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="maceta" class="maceta-section">
+        <h2 class="section-title">Maceta Inteligente IOT</h2>
+        <p class="section-subtitle">Nuestra maceta integra un sensor de humedad de suelo capacitivo de alta fidelidad para monitorear las raíces en tiempo real.</p>
+        
+        <div class="simulator-box">
+            <h3>🎛️ Simulador de Sensor de Humedad</h3>
+            <div class="slider-container">
+                <input type="range" id="humedad-slider" min="0" max="100" value="50" oninput="simularHumedad(this.value)">
+                <div class="slider-value"><span id="valor-humedad">50</span>%</div>
+            </div>
+            <div id="status-display" class="status-display correcto">
+                Humedad Correcta
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="beneficios-section">
+        <h2 class="section-title">Beneficios del Ecosistema</h2>
+        <div class="beneficios-grid">
+            <div class="beneficio-card"><h3>❤️ Evita que mueran</h3><p>Alertas tempranas antes de que el daño foliar o radicular sea irreversible.</p></div>
+            <div class="beneficio-card"><h3>💧 Ahorra agua</h3><p>Riega únicamente cuando el sustrato digital lo requiera.</p></div>
+            <div class="beneficio-card"><h3>🧑‍🌾 Sin experiencia</h3><p>Cualquier persona puede mantener un jardín botánico profesional en casa.</p></div>
+            <div class="beneficio-card"><h3>📊 Personalización</h3><p>Algoritmos adaptados a las necesidades metabólicas de cada especie vegetal.</p></div>
+            <div class="beneficio-card"><h3>🌍 Eco-Tecnología</h3><p>Fusión perfecta entre el avance técnico y el respeto al medio ambiente.</p></div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="footer">
+        <div class="footer-content">
+            <h2>SmartPlant Proyect</h2>
+            <p>Diseño y Desarrollo Tecnológico para la Sustentabilidad Escolar.</p>
+            <div class="team-info">
+                <p><strong>Integrantes:</strong> Juan Pérez, María Rodríguez, Carlos Gómez</p>
+                <p><strong>Integrantes:</strong> Benavides Ochoa Cristopher Alexander</p>
+                <p><strong>Grupo:</strong> Dual - Especialidad Programación / Informática</p>
+                <p><strong>Escuela:</strong> Conalep Guadalajara 2 </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
